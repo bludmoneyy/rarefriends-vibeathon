@@ -1,8 +1,10 @@
 # Rare Adventures
 
-A choose-your-adventure game that gives Rare Friends a progression loop through equipment, dangerous expeditions, party battles, and a simulated $RAREFRIENDS economy.
+Connect your wallet and play with your own Genesis and Generations NFTs in a choose-your-adventure game with equipment, expeditions, party battles, and a simulated $RAREFRIENDS economy.
 
 **[Play the demo](https://bludmoneyy.github.io/rare-adventures/)** · **[Source code](https://github.com/bludmoneyy/rare-adventures)** · **[Rare Friends Vibeathon](https://github.com/spokesz/rarefriends-vibeathon)**
+
+**Reviewer walkthrough:** Open the demo, connect a wallet on Robinhood Chain, and select **Choose a pet** once ownership loading finishes. The Friends screen contains the wallet’s verified Genesis and hardwired Generations pets, with their original artwork. Select a pet, buy equipment in Shops, then enter an Adventure or assemble a party in Battles. Genesis pets receive +10% damage/healing in every battle arena; Generations pets receive +10% when their on-chain scenery matches the arena. These bonuses do not stack. Wallets without eligible pets see an empty-roster message; reviewers without NFTs can use the separately labeled guest demo.
 
 | Submission detail | Rare Adventures |
 | --- | --- |
@@ -52,14 +54,14 @@ Progress is saved in this browser's `localStorage`, separately for the guest dem
 
 ## Checks and known limitations
 
-Wallet and owned-pet checks (September 30, 2026):
+Wallet and owned-pet checks (September 30, 2026). The [deployment workflow](https://github.com/bludmoneyy/rare-adventures/actions/runs/36766159828) passed for source revision `5a9217e`:
 
 - TypeScript checking and the production build for `/rare-adventures/` passed.
 - Ten wallet tests passed: connection, rejection/retry, account/network changes, network addition, declined switching, cancellation, stale balance responses, malformed responses/disconnect, timeout, and provider discovery.
 - Automated Chrome checks with an injected test provider passed for missing-wallet guidance, connection, wrong-network display, switching, live balance rendering, account changes, disconnect, keyboard focus restoration, and mobile layout at 375 × 812. No browser runtime errors or signing/transaction requests were observed.
 - Nine owned-pet tests passed for both collections, metadata/scenery, transfer reconciliation, incomplete history, `ownerOf` mismatches, wrong networks, metadata errors, empty wallets, generation-zero exclusion, cancellation, and buff behavior.
 - Chrome integration checks passed for replacing the guest roster, displaying original artwork, selecting an owned Generations pet, entering an adventure with its sprite, account isolation, restored wallet-specific progress, removal of transferred pets, RPC failure/retry, and mobile layout.
-- A read-only live-mainnet browser check loaded four real holdings (one Genesis, three Generations), rendered their original artwork, and selected Generations #2640 for adventure preparation. The wallet account was supplied by a test provider; the NFT reads used real public RPC responses.
+- A read-only browser check on the deployed GitHub Pages app loaded four real mainnet holdings (one Genesis, three Generations), rendered their original artwork, and selected Generations #2640 for adventure preparation. The wallet account was supplied by a test provider; the NFT reads used real public RPC responses.
 - Automated wallet controls use a mock provider. A real extension/hardware-wallet acceptance pass and a full gameplay/browser suite remain outstanding.
 
 Checks previously recorded during deployment preparation:
